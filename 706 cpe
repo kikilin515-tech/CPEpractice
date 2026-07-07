@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long long int a,b;
+    while(cin>>a>>b){
+        int res=0;
+        res=abs(b-a);\\絕對值
+        cout<<res<<"\n";
+    }
+    return 0;
+}
