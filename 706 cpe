@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    long long int a,b;
+    long long int a,b;\\因為題目到2的32次方
     while(cin>>a>>b){
         int res=0;
         res=abs(b-a);\\絕對值
