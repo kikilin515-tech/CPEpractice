@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int i,j;
+    while(cin>>i>>j){
+        if(i>j)swap(i,j);//如果i>j 請幫他們順序調換由小到大
+        int orig_i=i;//先把i跟j存起來
+        int orig_j=j;
+        int max=0;
+        for(int k=i;k<=j;k++){
+            int n=k;
+            int temp=1;
+            while(n!=1){ //n不等於1的話
+                if(n%2==1){
+                    n=n*3+1;
+                }else{
+                    n/=2;
+                }
+                temp++; //次數加起來
+            }
+            if(temp>max){ //前面定義max=0,temp=1
+                max=temp;
+            }
+        }
+        cout<<orig_i<<" "<<orig_j<<" "<<max;
+    }
+    return 0;
+}
