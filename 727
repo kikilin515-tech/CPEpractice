@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string n;
+    while(cin>>n&& n!="0"){//"0"原數0
+        int odd_sum=0;
+        int even_sum=0;
+        for(int i=0;i<n.length();i++){
+            if(i%2==0){
+                odd_sum+=(n[i]-'0');//'0'是ASCII碼⭐️不同於"0"，n[i]也是ASCII碼不是原數，故要減掉'0'才可得
+            }else{
+                even_sum+=(n[i]-'0');
+            }
+        }
+        if((even_sum - odd_sum)%11==0){
+            cout<<n<<"is a multiple of 11"<<endl;
+        }else{
+            cout<<n<<"is not a multiple of 11"<<endl;
+        }
+    }
+
+    return 0;
+}
