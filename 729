@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+void Bangla(long long int n){
+    while(n>0){ //continue 必須搭配 while或for
+        if(n>=10000000){
+            cout <<" "<<n/10000000<<" "<<"kuti";
+            n%=10000000;
+            continue;
+        }
+        if(100000<=n&&n<10000000){ //不會被當作「⁠n⁠ 介於 10 萬到 1000 萬之間」。程式只會知道結果是否成立（true or false）
+            cout <<" "<<n/100000<<" "<<"lakh";
+            n%=100000; //這樣n才有更新後面的餘數 不然就一直無限循環原本的數（n）
+            continue;
+        }
+        if(1000<=n&&n<100000){
+            cout <<" "<<n/1000<<" "<<"hajar";
+            n%=1000;
+            continue;
+        }
+        if(100<=n&&n<1000){
+            cout <<" "<<n/100<<" "<<"shata";
+            n%=100;
+            continue;
+        }else{
+            cout <<" "<<n;
+            break;
+        }
+    }
+}
+int main()
+{
+    long long int n;
+    int T =1;
+    while(cin>>n && n>0){
+        cout<<setw(4)<<setfill(' ')<<T<<".";
+        if(n==0)cout<<" "<<0;
+        if(n>=10000000){
+            Bangla(n/10000000);
+            cout<<"kuti";
+            Bangla(n%10000000);
+        }else{
+            Bangla(n);
+        }
+        cout<<"\n";
+        T++;
+    }
+    return 0;
+}
