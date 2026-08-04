@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,max=0;
+    cin>>n;
+    getchar(); //一定要先輸入才能過濾換行符
+    int counts[26]={0};
+    while(n--){ //第一測試：檢查條件n=3 以此類推 當n=0 測試檢查結束（=false）
+        string s;
+        getline(cin,s);
+        for(int i=0;i<s.length();i++){
+            if('a'<=s[i]&&s[i]<='z'){
+                counts[s[i]-'a']++;
+                if(counts[s[i]-'a']>max){
+                    max=counts[s[i]-'a'];
+                }
+            }
+            if('A'<=s[i]&&s[i]<='Z'){
+                counts[s[i]-'A']++; //s[i]='字母'；例如：counts[0]='A'
+                if(counts[s[i]-'A']>max){
+                    max=counts[s[i]-'A'];
+                }
+            }
+            
+        }
+    }
+    for(int j=max;j>0;j--){ //出現較多的字母在前面
+        for(int k=0;k<=25;k++){
+            if(counts[k]==j) cout<<char(k+'A')<<" "<<j<<"\n";
+        }
+    }
+
+    return 0;
+}
