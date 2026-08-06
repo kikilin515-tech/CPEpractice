@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string S1="'1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"; //把鍵盤上的符號字母都存在字串裡
+    string S2; //輸入的字串
+    while(getline(cin,S2)){
+        for(int i=0;i<S2.length();i++){
+            if(S2[i]>='A'&& S2[i]<='Z'){
+                S2[i]=tolower(S2[i]); //若是大寫的話轉成小寫
+            }
+            if(S2[i]==32||S2[i]==10){ //若是空白（' '）換行（'\n'）
+                cout<<S2[i]; //直接輸入
+            }else{
+                cout<<S1[S1.find(S2[i])-2]; //從第一個字串裡找輸入字串往左2個 例如輸入k輸出h
+            }
+        }
+        cout<<"\n";
+    }
+    return 0;
+}
