@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int T;
+    cin>>T;
+    string M[8]={"Friday","Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"};
+    int D[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+    while(T--){
+        int m,d,days=0;
+        cin>>m>>d;
+        days+=d;
+        for(int i=1;i<m;i++) {
+            days+=D[i]; }
+        cout<<M[days%7]<<"\n";
+    }
+    return 0;
+}
